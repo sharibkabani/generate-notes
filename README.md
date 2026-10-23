@@ -10,17 +10,23 @@ Paste a Brightspace (D2L / MyLearningSpace) course link into Claude, say what yo
 - **Flashcards**, **formula sheet**, and a **Pomodoro** timer
 - Works on phones, dark mode, figures open in a zoomable lightbox
 
-It was distilled from two real builds (an algorithms test lab and a microeconomics midterm lab) and bakes in every fix that had to be asked for along the way: proper math typesetting (no raw `^2` or `log_b`), code blocks that scroll instead of wrapping, a scrollable tab bar, a sticky notes table of contents that follows your reading, real slide figures instead of redrawn ones, and more. See [`references/formatting-rules.md`](brightspace-study-lab/references/formatting-rules.md).
+It was distilled from two real builds (an algorithms test lab and a microeconomics midterm lab) and bakes in every fix that had to be asked for along the way: proper math typesetting (no raw `^2` or `log_b`), code blocks that scroll instead of wrapping, a scrollable tab bar, a sticky notes table of contents that follows your reading, real slide figures instead of redrawn ones, and more. See [`references/formatting-rules.md`](skills/brightspace-study-lab/references/formatting-rules.md).
 
 ## Install
 
 **Claude apps (claude.ai / desktop):** download [`dist/brightspace-study-lab.zip`](dist/brightspace-study-lab.zip) and upload it as a custom skill in Claude's settings (skills need to be enabled for your account).
 
-**Claude Code:**
+**Any agent, with the [skills CLI](https://skills.sh):**
+
+```bash
+npx skills add sharibkabani/generate-notes
+```
+
+**Claude Code, by hand:**
 
 ```bash
 git clone https://github.com/sharibkabani/generate-notes
-cp -r generate-notes/brightspace-study-lab ~/.claude/skills/
+cp -r generate-notes/skills/brightspace-study-lab ~/.claude/skills/
 ```
 
 ## Use
@@ -35,7 +41,7 @@ Claude never types your password, never starts a quiz attempt, and only reads.
 ## What's inside
 
 ```
-brightspace-study-lab/
+skills/brightspace-study-lab/
 ├── SKILL.md                     # the workflow Claude follows
 ├── references/
 │   ├── brightspace-crawl.md     # reading a whole course: D2L API endpoints, UI fallback, what to capture
